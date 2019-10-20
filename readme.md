@@ -40,3 +40,8 @@
 			Routes(api.php) --> Controller(LegalEntityController) --> Repository(LegalEntityrepository) --> Models with relationships(legalEntity, Country and legalEntityHistory)  --> Database
 
 			Database design planned --> migrations & seeders --> php artisan migrate
+
+### Other Notes 
+- The hostname contains http://localhost:8081/server.php and next I have my api route(/api/legal-entity/all).When i mounted laravel on docker containers, I had to append server.php to hit api routes. I hope this is fine.    
+- When I started this project, laravel artisan serve took care of not having server.php in the uri.
+
