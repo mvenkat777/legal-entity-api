@@ -1,0 +1,205 @@
+{
+	"info": {
+		"_postman_id": "9bba756e-a0ff-4313-8d7d-b0188330d338",
+		"name": "Legal Entity Management API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create New Legal Entity",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Deutsche Post\",\n    \"country\": \"DE\",\n    \"status\": \"INACTIVE\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/server.php/api/legal-entity/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"server.php",
+						"api",
+						"legal-entity",
+						"create"
+					]
+				},
+				"description": "Create​ an entity, providing name, country and status"
+			},
+			"response": []
+		},
+		{
+			"name": "Update Legal Entity",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Tesla Group End GMBH\",\n    \"country\": \"DE\",\n    \"status\": \"ACTIVE\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/server.php/api/legal-entity/update/16",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"server.php",
+						"api",
+						"legal-entity",
+						"update",
+						"16"
+					]
+				},
+				"description": "Update entity information, modification history and unallow update for non-validated entity\n"
+			},
+			"response": []
+		},
+		{
+			"name": "Retrieve Legal Entity By Status, By Validation",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8081/server.php/api/legal-entity/all?status=INACTIVE&validated=0",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"server.php",
+						"api",
+						"legal-entity",
+						"all"
+					],
+					"query": [
+						{
+							"key": "status",
+							"value": "INACTIVE"
+						},
+						{
+							"key": "validated",
+							"value": "0"
+						}
+					]
+				},
+				"description": "Retrieve​complete list with optional​filtering​ entities by their status and validation state"
+			},
+			"response": []
+		},
+		{
+			"name": "Retrieve​ Legal Entity By LEI",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/server.php/api/legal-entity/lei/2OKKCDJFXSM6MRKHK758?version=2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"server.php",
+						"api",
+						"legal-entity",
+						"lei",
+						"2OKKCDJFXSM6MRKHK758"
+					],
+					"query": [
+						{
+							"key": "version",
+							"value": "2"
+						}
+					]
+				},
+				"description": "Retrieve​entity by lei number and its history api link.\nA ​version ​query parameter should allow retrieving the entity in an earlier version"
+			},
+			"response": []
+		},
+		{
+			"name": "Retrieve history for each legal entity",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/server.php/api/legal-entity/history/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"server.php",
+						"api",
+						"legal-entity",
+						"history",
+						"2"
+					]
+				},
+				"description": "Retrieve history for each legal entity by Id"
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "69616bb2-31c8-454d-b6e5-feeafa73bd20",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "7a1beaef-4897-4431-81a5-d248455d739d",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
